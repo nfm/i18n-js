@@ -16,7 +16,7 @@ module I18n
     # Detect if Rails app has asset pipeline support.
     #
     def self.has_asset_pipeline?
-      Rails.configuration.respond_to?(:assets) && Rails.configuration.assets.enabled
+      Rails.configuration.respond_to?(:assets) && (Rails.configuration.assets.enabled.nil? || Rails.configuration.assets.enabled)
     end
 
     # The configuration file. This defaults to the `config/i18n-js.yml` file.
